@@ -1,12 +1,37 @@
-- 👋 Hi, I’m @RiyaBhatt16
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+#include <iostream>
 
-<!---
-RiyaBhatt16/RiyaBhatt16 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+using namespace std;
+
+class SumPositive {
+public:
+    int sum;
+
+    SumPositive(int arr[], int n) {
+        sum = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > 0) {
+                sum += arr[i];
+            }
+        }
+    }
+
+    SumPositive(const SumPositive& other) {
+        sum = other.sum;
+    }
+
+    void displaySum() {
+        cout << "Sum of positive numbers: " << sum << endl;
+    }
+};
+
+int main() {
+    int arr[] = {1, -2, 3, 4, -5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    SumPositive obj1(arr, n);
+    SumPositive obj2(obj1); // Copy constructor called
+
+    obj2.displaySum();
+
+    return 0;
+}
